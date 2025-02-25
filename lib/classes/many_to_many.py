@@ -2,11 +2,11 @@ class Author:
     def __init__(self, name):
         if not isinstance(name, str) or len(name) == 0:
             raise ValueError("Name must be a non-empty string")
-        self._name = name  # Immutable
+        self._name = name  
 
     @property
     def name(self):
-        return self._name  # No setter to enforce immutability
+        return self._name  
 
     @name.setter
     def name(self, value):
@@ -48,7 +48,7 @@ class Magazine:
             raise ValueError("Name must be a string")
         if not (2 <= len(value) <= 16):
             raise ValueError("Name must be between 2 and 16 characters")
-        self._name = value  # Allow valid name changes
+        self._name = value  
 
     @property
     def category(self):
@@ -58,7 +58,7 @@ class Magazine:
     def category(self, value):
         if not isinstance(value, str) or len(value.strip()) == 0:
             raise ValueError("Category must be a non-empty string")
-        self._category = value  # Allow valid category changes
+        self._category = value  
 
     def articles(self):
         return [article for article in Article.all if article.magazine == self]
@@ -93,14 +93,14 @@ class Article:
         if not isinstance(magazine, Magazine):
             raise ValueError("Magazine must be an instance of Magazine")
 
-        self._title = title  # Immutable
+        self._title = title  
         self.author = author
         self.magazine = magazine
         Article.all.append(self)
 
     @property
     def title(self):
-        return self._title  # No setter to enforce immutability
+        return self._title  
 
     @title.setter
     def title(self, value):
