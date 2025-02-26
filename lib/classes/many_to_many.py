@@ -22,7 +22,9 @@ class Author:
         return Article(self, magazine, title)
 
     def topic_areas(self):
-        return list(set(magazine.category for magazine in self.magazines())) if self.articles() else None
+        return list(set(magazine.category for magazine in self.magazines())) if self.articles() else []
+
+
 
 
 class Magazine:
